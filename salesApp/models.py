@@ -10,6 +10,7 @@ class Product(models.Model):
     quantity_available = models.IntegerField()
     cost = models.DecimalField(max_digits=10, decimal_places=2)
     selling_price = models.DecimalField(max_digits=10, decimal_places=2)
+    photo = models.ImageField(upload_to='products/', null=True, blank=True)
 
 class Customer(models.Model):
     first_name = models.CharField(max_length=100)
@@ -43,3 +44,5 @@ class CustomerInfo(models.Model):
     sports = models.JSONField(null=True, blank=True)
     marital_status = models.JSONField(null=True, blank=True)
     categories_interested = models.JSONField(null=True, blank=True)
+    
+    
