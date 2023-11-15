@@ -1,11 +1,11 @@
 
-/*INSERT INTO "salesApp_categoryproduct" (id,code, description) VALUES
+INSERT INTO "salesApp_categoryproduct" (id,code, description) VALUES
 (1,'001', 'Electrodomesticos'),
 (2,'002', 'Celulares'),
 (3,'003', 'Computadores'),
 (4,'004', 'TV'),
 (5,'005', 'Accesorios'),
-(6,'006', 'Videojuegos');*/
+(6,'006', 'Videojuegos');
 
 INSERT INTO "salesApp_product" (id, category_id, description, quantity_available, cost, selling_price,photo) VALUES
 (1, 1, 'Nevera Haceb No Frost', 10, 300.50, 400.50, 'products/nevera.jpg'),
@@ -24,3 +24,10 @@ INSERT INTO "salesApp_product" (id, category_id, description, quantity_available
 (14, 1, 'Batidora KALLEY', 30, 18.00, 22.90, 'products/batidora.jpeg'),
 (15, 1, 'Sandwichera KALLEY', 30, 27.00, 35.00, 'products/sandwichera.jpeg'),
 (16, 1, 'Aire Acondicionado SAMSUNG', 20, 580.00, 620.50, 'products/aire.jpg');
+
+INSERT INTO "salesApp_customer" (id,first_name, last_name, address, date_of_birth, email, home_phone, cell_phone)
+VALUES 
+  (1,'Lebron', 'James', 'L.A Star Street', '2000-01-01', 'lebron23@gmail.com', '123-456-7890', '999666777'),
+  (2,'Lionel', 'Messi', 'Miami History Park', '1995-05-15', 'messi10@gmail.com', '111-222-3333', '444555666'),
+  (3,'Elon', 'Musk', 'Seattle Tesla Avn', '1990-05-15', 'elonthemusk@gmail.com', '156-222-3333', '222111000')
+;

@@ -1,3 +1,40 @@
-from django.shortcuts import render
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+from .models import Customer, Product
+from .serializers import CustomerSerializer, ProductSerializer
 
-# Create your views here.
+@api_view(['POST'])
+def customer_lookup(request):
+    if request.method == 'POST':
+        email = request.data.get('email')
+        cell_phone = request.data.get('cell_phone')
+        if email and cell_phone:
+            try:
+                customer = Customer.objects.get(email=email, cell_phone=cell_phone)
+                serializer = CustomerSerializer(customer)
+                return Response(serializer.data)
+            except Customer.DoesNotExist:
+                return Response({'error': 'Customer not found'}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'error': 'Both email and cell_phone are required'}, status=status.HTTP_400_BAD_REQUEST)
+    else:
+        return Response({'error': 'Method not allowed'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+@api_view(['GET'])
+def products_by_category(request, category_id):
+    try:
+        products = Product.objects.filter(category=category_id)
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
+    except Product.DoesNotExist:
+        return Response({'error': 'No hay productos para esta categoría'}, status=404)
+
+@api_view(['GET'])
+def product(request, id):
+    try:
+        product = Product.objects.filter(id=id)
+        serializer = ProductSerializer(product, many=True)
+        return Response(serializer.data)
+    except Product.DoesNotExist:
+        return Response({'error': 'No hay productos para esta categoría'}, status=404)

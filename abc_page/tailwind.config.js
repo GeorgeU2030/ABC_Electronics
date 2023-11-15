@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       colors:{
-        azyellow: "#FF9900",
-        azblue: "#146EB4",
-        azblack: "#000000",
-        azwhite: "#FFFFFF",
+        azp: "#164863",
+        azs: "#427D9D",
+        azt: "#9BBEC8",
+        azf: "#DDF2FD",
       },
     },
   },
