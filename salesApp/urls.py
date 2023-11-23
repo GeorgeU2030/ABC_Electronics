@@ -9,4 +9,6 @@ urlpatterns = [
     path('lookup/', views.customer_lookup, name='customer_lookup'),
     path('products/<int:category_id>/', views.products_by_category, name='products_by_category'),
     path('product/<int:id>/', views.product, name='products_by_id'),
+    path('customerinfo/<int:customer_id>/', views.customer_info, name='customer_info'),
+    path('save_info_client/', views.save_info_client, name='save_info_client'),
 ]

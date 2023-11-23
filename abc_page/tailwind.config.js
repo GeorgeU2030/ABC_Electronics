@@ -11,6 +11,7 @@ export default {
         azs: "#427D9D",
         azt: "#9BBEC8",
         azf: "#DDF2FD",
+        butcol: "#1AAF64",
       },
     },
   },

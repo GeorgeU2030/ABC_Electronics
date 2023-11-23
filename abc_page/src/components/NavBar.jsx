@@ -14,7 +14,7 @@ const NavBar = () => {
   const name = customerObj.first_name
 
   return (
-    <nav className="bg-azp p-4 py-6 flex items-center justify-between border-2 border-azs text-azf">
+    <nav className="bg-azp p-4 py-6 flex items-center justify-between border-2 border-azs text-azf w-screen">
       <div className="hidden md:flex items-center ml-16">
       <h1 className="text-azblack text-2xl font-init font-semibold ">
       abc Electronics

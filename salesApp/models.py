@@ -33,16 +33,19 @@ class OrderDetail(models.Model):
     quantity = models.IntegerField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
-from djongo import models
+from djongo import models as mod
 
-class CustomerInfo(models.Model):
-    customer = models.OneToOneField('Customer', on_delete=models.CASCADE, related_name='additional_info')
-    children = models.JSONField(null=True, blank=True)
-    birth_place = models.JSONField(null=True, blank=True)
-    location_place = models.JSONField(null=True, blank=True)
-    hobbies = models.JSONField(null=True, blank=True)
-    sports = models.JSONField(null=True, blank=True)
-    marital_status = models.JSONField(null=True, blank=True)
-    categories_interested = models.JSONField(null=True, blank=True)
+
+
+class CustomerInfo(mod.Model):
+    numberOfChildren = mod.IntegerField(default=0)
+    children = mod.JSONField(default=list)
+    placeOfBirth = mod.JSONField(default=dict, max_length=255)
+    placeLocation = mod.JSONField(default=dict)
+    hobbies = mod.CharField(null=True, blank=True, max_length=255)
+    sports = mod.CharField(null=True, blank=True, max_length=255)
+    categories = mod.JSONField(default=dict)
+    status = mod.JSONField(default=dict)
+    customer = mod.ForeignKey(Customer, on_delete=models.CASCADE)
     
     

@@ -1,8 +1,8 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Customer, Product
-from .serializers import CustomerSerializer, ProductSerializer
+from .models import Customer, Product, CustomerInfo
+from .serializers import CustomerSerializer, ProductSerializer, CustomerInfoSerializer
 
 @api_view(['POST'])
 def customer_lookup(request):
@@ -38,3 +38,24 @@ def product(request, id):
         return Response(serializer.data)
     except Product.DoesNotExist:
         return Response({'error': 'No hay productos para esta categoría'}, status=404)
+    
+@api_view(['GET'])
+def customer_info(request, customer_id):
+    try:
+        customer_info = CustomerInfo.objects.get(customer__id=customer_id)
+        serializer = CustomerInfoSerializer(customer_info)
+        return Response(serializer.data)
+        
+    except CustomerInfo.DoesNotExist:
+        return Response({'error': 'CustomerInfo not found'}, status=404)
+    
+@api_view(['POST'])
+def save_info_client(request):
+    serializer = CustomerInfoSerializer(data=request.data)
+    if serializer.is_valid():
+        customer_info = serializer.save()
+        print("CUSTOMER_INFO", customer_info)
+        return Response({"message": "Datos guardados correctamente"}, status=status.HTTP_201_CREATED)
+    else:
+        print("error", serializer.errors)
+        return Response({"error": "Datos no válidos"}, status=status.HTTP_400_BAD_REQUEST)
