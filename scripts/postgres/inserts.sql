@@ -1,11 +1,11 @@
-/*
+
 INSERT INTO "salesApp_categoryproduct" (id,code, description) VALUES
 (1,'001', 'Electrodomesticos'),
 (2,'002', 'Celulares'),
 (3,'003', 'Computadores'),
 (4,'004', 'TV'),
 (5,'005', 'Accesorios'),
-(6,'006', 'Videojuegos');*/
+(6,'006', 'Videojuegos');
 
 INSERT INTO "salesApp_product" (id, category_id, description, quantity_available, cost, selling_price,photo) VALUES
 (1, 1, 'Nevera Haceb No Frost', 10, 300.50, 400.50, 'products/nevera.jpg'),
@@ -57,11 +57,9 @@ INSERT INTO "salesApp_product" (id, category_id, description, quantity_available
 (47, 6, 'FC 24 PS5', 70, 30.00,56.10, 'products/fc24.jpg'),
 (48, 6, 'Marvels Spiderman2 PS5', 40, 50.00,90.90, 'products/ms2.jpg'),
 (49, 6, 'Star Wars:Jedi Survivor XBOX', 20, 30.00,49.90, 'products/jedi.jpg'),
-(50, 6, 'Super Mario Bros Wonder', 40, 50.00,70.90, 'products/mario.jpg'),
-/*
+(50, 6, 'Super Mario Bros Wonder', 40, 50.00,70.90, 'products/mario.jpg');
+
 INSERT INTO "salesApp_customer" (id,first_name, last_name, address, date_of_birth, email, home_phone, cell_phone)
 VALUES 
-  (1,'Lebron', 'James', 'L.A Star Street', '2000-01-01', 'lebron23@gmail.com', '123-456-7890', '999666777'),
   (2,'Lionel', 'Messi', 'Miami History Park', '1995-05-15', 'messi10@gmail.com', '111-222-3333', '444555666'),
-  (3,'Elon', 'Musk', 'Seattle Tesla Avn', '1990-05-15', 'elonthemusk@gmail.com', '156-222-3333', '222111000')
-;*/
+  (3,'Elon', 'Musk', 'Seattle Tesla Avn', '1990-05-15', 'elonthemusk@gmail.com', '156-222-3333', '222111000');

@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 import axios from 'axios'
 
 const Loginpage = () => {
@@ -67,8 +67,9 @@ const Loginpage = () => {
         <button type="submit" className='mt-10 py-1 px-1 bg-azs text-azf font-semibold hover:bg-azt hover:text-azp hover:font-semibold  w-full rounded-md border-2 border-azs'>
           Ingresar</button>
         </form>
-         <button type="submit" className='mt-5 py-1 px-1 bg-azs text-azf font-semibold hover:bg-azt hover:text-azp hover:font-semibold  w-2/5 rounded-md border-2 border-azs'>
-          Registrarse</button>
+        <Link to='/register' className='mt-5 py-1 px-1 bg-azs text-azf font-semibold hover:bg-azt hover:text-azp hover:font-semibold w-2/5 rounded-md border-2 border-azs text-center'>
+          Registrarse
+        </Link>
         </div>
     </div>
     </>

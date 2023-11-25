@@ -59,3 +59,28 @@ def save_info_client(request):
     else:
         print("error", serializer.errors)
         return Response({"error": "Datos no válidos"}, status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(['POST'])
+def register_costumer(request): 
+    data=request.data
+    try:
+        print("entro al try")
+        new_customer=Customer(
+            first_name = data['name'],
+            last_name = data['lastname'],
+            email = data['email'],
+            cell_phone = data['cell_phone'],
+            home_phone = data['homephone'],
+            date_of_birth = data['birthdate'],
+            address = data['address']
+        )
+        
+        print("creadooooo")
+        
+        new_customer.save()
+        
+        return Response(status=status.HTTP_200_OK)
+    except Exception as e:
+        print(e)
+        return Response({"error": "el id ya está registrado, o no se gititaron correctamente los campos"}, status=status.HTTP_400_BAD_REQUEST)
+    
