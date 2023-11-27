@@ -62,4 +62,10 @@ INSERT INTO "salesApp_product" (id, category_id, description, quantity_available
 INSERT INTO "salesApp_customer" (id,first_name, last_name, address, date_of_birth, email, home_phone, cell_phone)
 VALUES 
   (2,'Lionel', 'Messi', 'Miami History Park', '1995-05-15', 'messi10@gmail.com', '111-222-3333', '444555666'),
-  (3,'Elon', 'Musk', 'Seattle Tesla Avn', '1990-05-15', 'elonthemusk@gmail.com', '156-222-3333', '222111000');
+  (3,'Elon', 'Musk', 'Seattle Tesla Avn', '1990-05-15', 'elonthemusk@gmail.com', '156-222-3333', '222111000'),
+  (4,'aaaaa', 'aaaaa', 'cali', '1995-05-15', 'aaaaa@gmail.com', '333-333-3333', '333333333'); 
+
+insert into "salesApp_order" values (1, '2023-11-07', '2023-11-08', '2023-11-07', 2), (2, '2023-11-07', '2023-11-08', '2023-11-07', 2);
+
+
+insert into "salesApp_orderdetail" values (1, 1, 1130.50, 1, 17), (2, 1, 500.10, 2, 4);

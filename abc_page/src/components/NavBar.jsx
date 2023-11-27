@@ -21,7 +21,7 @@ const NavBar = () => {
       </h1>
       </div>
       <div className="hidden md:flex space-x-4 w-1/2 justify-end">
-      <Link to='/' className="text-white bg-azs py-2 px-4 font-init font-semibold rounded-lg" style={{ marginRight: '3.5rem' }}>
+      <Link to='/orders' className="text-white bg-azs py-2 px-4 font-init font-semibold rounded-lg" style={{ marginRight: '3.5rem' }}>
       {name}
      </Link>
       </div>
@@ -37,7 +37,7 @@ const NavBar = () => {
       </div>
       {menuOpen && (
         <div className="md:hidden top-0 left-0 w-60 h-30 p-4 flex flex-col justify-center items-center bg-azf">
-          <Link to='/' className="text-white bg-azs py-2 px-4 font-init font-semibold rounded-lg" style={{ marginRight: '3.5rem' }}>
+          <Link to='/orders' className="text-white bg-azs py-2 px-4 font-init font-semibold rounded-lg" style={{ marginRight: '3.5rem' }}>
           {name}
           </Link> 
         </div>

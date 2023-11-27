@@ -11,5 +11,6 @@ urlpatterns = [
     path('product/<int:id>/', views.product, name='products_by_id'),
     path('customerinfo/<int:customer_id>/', views.customer_info, name='customer_info'),
     path('save_info_client/', views.save_info_client, name='save_info_client'),
-    path('register/', views.register_costumer, name='register')
+    path('register/', views.register_costumer, name='register'), 
+    path('orders/<int:customer_id>/', views.getOrdersById, name='orders')
 ]

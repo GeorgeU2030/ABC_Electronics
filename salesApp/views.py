@@ -1,7 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Customer, Product, CustomerInfo
+from .models import Customer, Product, CustomerInfo, Order, OrderDetail
 from .serializers import CustomerSerializer, ProductSerializer, CustomerInfoSerializer
 
 @api_view(['POST'])
@@ -84,3 +84,22 @@ def register_costumer(request):
         print(e)
         return Response({"error": "el id ya está registrado, o no se gititaron correctamente los campos"}, status=status.HTTP_400_BAD_REQUEST)
     
+    
+@api_view(['GET'])
+def getOrdersById(request, customer_id): 
+    try: 
+        print("entra al try")
+        user= Customer.objects.get(id=customer_id)
+        userOrders = Order.objects.filter(customer=user)
+        finalData=[]
+        print("hizo los select iniciales de suer y orders")
+        for order in userOrders: 
+            print("order: ", order)
+            orderDetails=OrderDetail.objects.get(order=order)
+            print("orderDetails: ", orderDetails)
+            finalData.append({'order_date': order.order_date, 'shipped_date': order.shipped_date, 'payment_date': order.payment_date, 'product': orderDetails.product.description, 'price': orderDetails.price})
+        return Response(finalData)
+        
+    except Exception as e:
+        print(e)
+        return Response({"error": "hubo un error"}, status=status.HTTP_400_BAD_REQUEST)

@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Loginpage from './pages/Loginpage';
 import MenuPage from './pages/MenuPage';
 import BuyPage from './pages/BuyPage';
+import OrdersPage from './pages/OrdersPage';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import AddInfoPage from './pages/AddInfoPage';
@@ -35,6 +36,7 @@ const App = () => {
                 <Route path="/mainmenu" element={<MenuPage></MenuPage>} />
                 <Route path="/product/:id" element={<BuyPage></BuyPage>} />
                 <Route path="/addinfo" element={<AddInfoPage></AddInfoPage>} />
+                <Route path="/orders" element={<OrdersPage></OrdersPage>} />
               </Routes>}
             />
           }
