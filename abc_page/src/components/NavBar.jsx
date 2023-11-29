@@ -17,7 +17,7 @@ const NavBar = () => {
     <nav className="bg-azp p-4 py-6 flex items-center justify-between border-2 border-azs text-azf w-screen">
       <div className="hidden md:flex items-center ml-16">
       <h1 className="text-azblack text-2xl font-init font-semibold ">
-      abc Electronics
+      ABC Electronics
       </h1>
       </div>
       <div className="hidden md:flex space-x-4 w-1/2 justify-end">

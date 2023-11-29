@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import AddInfoPage from './pages/AddInfoPage';
 import RegisterPage from './pages/RegisterPage';
+import OrderPlacedPage from './pages/OrderPlacedPage'
 
 function isCustomer(){
   const customer = localStorage.getItem('customer')
@@ -37,6 +38,7 @@ const App = () => {
                 <Route path="/product/:id" element={<BuyPage></BuyPage>} />
                 <Route path="/addinfo" element={<AddInfoPage></AddInfoPage>} />
                 <Route path="/orders" element={<OrdersPage></OrdersPage>} />
+                <Route path="/placedorder" element={<OrderPlacedPage></OrderPlacedPage>}/>
               </Routes>}
             />
           }

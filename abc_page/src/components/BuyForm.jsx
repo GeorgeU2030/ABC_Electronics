@@ -10,8 +10,10 @@ const BuyForm = () => {
   const navigate = useNavigate()
   const params = useParams()
   const [product, setProduct] = useState(null)
+  const [customerId, setCustomerId] = useState(null);
   const [units, setUnit] = useState(1)
   const [totalpay, setTotalPay] = useState(0)
+  const [discount, setDiscount] = useState(1)
 
   const increaseamount = () => {
     setUnit(units+1)
@@ -88,6 +90,14 @@ const BuyForm = () => {
             <div className='flex bg-azt text-azp font-semibold mt-4 w-1/2 h-12 rounded-lg items-center'>
               <label className='ml-5'>Total a Pagar</label>
               <label className='ml-20 text-xl'>$ {totalpay}</label>
+            </div>
+            <div className='mt-3'>
+            <button
+                className='bg-butcol rounded-lg text-azf text-lg font-semibold py-3 px-4  mt-5'
+                onClick={() => navigate('/placedorder')}
+              >
+                Comprar
+              </button> 
             </div>
           </section>
         </>

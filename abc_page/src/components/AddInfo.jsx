@@ -1,8 +1,11 @@
 import ChildForm from "./ChildForm";
 import React, { useState } from "react";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const AddInfo = () => {
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState({
     numberOfChildren: 0,
     children: [],
@@ -144,7 +147,8 @@ const AddInfo = () => {
     axios
       .post("http://localhost:8000/salesApp/save_info_client/", formDataToSend)
       .then((response) => {
-        console.log("Datos guardados exitosamente:", response.data);    
+        console.log("Datos guardados exitosamente:", response.data); 
+        navigate(-1);
       })
       .catch((error) => {
         console.error("Error al guardar los datos:", error);
