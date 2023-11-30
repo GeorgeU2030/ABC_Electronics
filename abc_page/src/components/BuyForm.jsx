@@ -10,10 +10,18 @@ const BuyForm = () => {
   const navigate = useNavigate()
   const params = useParams()
   const [product, setProduct] = useState(null)
-  const [customerId, setCustomerId] = useState(null);
   const [units, setUnit] = useState(1)
   const [totalpay, setTotalPay] = useState(0)
   const [discount, setDiscount] = useState(1)
+
+  const getUserId = () => {
+    var data = localStorage.getItem('customer');
+    console.log(data);
+    var id = JSON.parse(data).id;
+    console.log(id);
+    return id;
+  }
+
 
   const increaseamount = () => {
     setUnit(units+1)
@@ -51,7 +59,27 @@ const BuyForm = () => {
     
       loadProduct();
     }, [params.id, units]); 
+
   
+    const handleBuyClick = async () => {
+      const id2 = getUserId();
+      try {
+        const response = await axios.post('http://localhost:8000/salesApp/createorder/', {
+          customer_id: id2,
+          productId: parseInt(product.id,10),
+          quantity: parseInt(units,10),
+          totalPay: parseFloat(totalpay),
+        });
+  
+        if (response.data.message === 'Orden creada correctamente') {
+          navigate('/placedorder');
+        } else {
+          console.error('Error al crear la orden');
+        }
+      } catch (error) {
+        console.error('Error al realizar la solicitud:', error);
+      }
+    };
 
   return (
     <div className='flex bg-azf w-screen h-[85vh]' >
@@ -94,7 +122,7 @@ const BuyForm = () => {
             <div className='mt-3'>
             <button
                 className='bg-butcol rounded-lg text-azf text-lg font-semibold py-3 px-4  mt-5'
-                onClick={() => navigate('/placedorder')}
+                onClick={handleBuyClick}
               >
                 Comprar
               </button> 

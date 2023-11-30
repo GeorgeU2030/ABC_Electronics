@@ -2,7 +2,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Customer, Product, CustomerInfo, Order, OrderDetail
-from .serializers import CustomerSerializer, ProductSerializer, CustomerInfoSerializer
+from .serializers import CustomerSerializer, OrderDetailSerializer, ProductSerializer, CustomerInfoSerializer
+from datetime import datetime, timedelta
 
 @api_view(['POST'])
 def customer_lookup(request):
@@ -103,3 +104,51 @@ def getOrdersById(request, customer_id):
     except Exception as e:
         print(e)
         return Response({"error": "hubo un error"}, status=status.HTTP_400_BAD_REQUEST)
+    
+
+   
+
+@api_view(['POST'])
+def create_order(request):
+    data = request.data
+    current_date = datetime.now()
+
+    shipping_date = current_date + timedelta(days=5)
+
+    try:
+        customer_id = data.get('customer_id') 
+        product_id = data.get('productId')
+        quantity = data.get('quantity')
+        total_pay = data.get('totalPay')
+
+        customer = Customer.objects.get(id=customer_id)
+        product = Product.objects.get(id=product_id)
+
+        new_order = Order(
+            customer= customer,
+            order_date=current_date,
+            payment_date=current_date,
+            shipped_date=shipping_date
+
+        )
+        new_order.save()
+
+        new_OrderDetail = OrderDetail(
+            order=new_order,
+            product=product,
+            quantity=quantity,
+            price=total_pay,
+        )
+        
+        new_OrderDetail.save()
+
+        print("Orden creada")
+        return Response({"message": "Orden creada correctamente"}, status=status.HTTP_200_OK)
+    
+    except Customer.DoesNotExist:
+        return Response({"error": "El cliente no existe"}, status=status.HTTP_400_BAD_REQUEST)
+    except Product.DoesNotExist:
+        return Response({"error": "El producto no existe"}, status=status.HTTP_400_BAD_REQUEST)
+    except Exception as e:
+        print(e)
+        return Response({"error": "Error al procesar la orden"}, status=status.HTTP_400_BAD_REQUEST)
