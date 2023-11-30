@@ -16,10 +16,12 @@ const NavCategory = ({ onCategoryChange }) => {
     onClick={() => onCategoryChange(3)}>
     Computadores
     </button >
-    <button className="text-xl font-init font-semibold ml-12 bg-azt text-azp rounded-lg px-6 py-1">
+    <button className="text-xl font-init font-semibold ml-12 bg-azt text-azp rounded-lg px-6 py-1"
+    onClick={() => onCategoryChange(4)}>
     TV
     </button >
-    <button className="text-xl font-init font-semibold ml-12 bg-azt text-azp rounded-lg px-2 py-1">
+    <button className="text-xl font-init font-semibold ml-12 bg-azt text-azp rounded-lg px-2 py-1"
+    onClick={() => onCategoryChange(5)}>
     Accesorios
     </button >
     <button className="text-xl font-init font-semibold ml-12 bg-azt text-azp rounded-lg px-2 py-1"

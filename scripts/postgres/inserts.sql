@@ -57,7 +57,17 @@ INSERT INTO "salesApp_product" (id, category_id, description, quantity_available
 (47, 6, 'FC 24 PS5', 70, 30.00,56.10, 'products/fc24.jpg'),
 (48, 6, 'Marvels Spiderman2 PS5', 40, 50.00,90.90, 'products/ms2.jpg'),
 (49, 6, 'Star Wars:Jedi Survivor XBOX', 20, 30.00,49.90, 'products/jedi.jpg'),
-(50, 6, 'Super Mario Bros Wonder', 40, 50.00,70.90, 'products/mario.jpg');
+(50, 6, 'Super Mario Bros Wonder', 40, 50.00,70.90, 'products/mario.jpg'),
+(51, 4, 'Smart TV Samsung 55 pulgadas', 10, 500.00, 800.00, 'products/samsung_tv.jpg'),
+(52, 4, 'LG 4K UHD TV 65 pulgadas', 15, 600.00, 900.00, 'products/lg_tv.jpg'),
+(53, 4, 'Sony OLED TV 50 pulgadas', 8, 450.00, 750.00, 'products/sony_tv.jpg'),
+(54, 4, 'Samsung QLED TV 75 pulgadas', 12, 550.00, 850.00, 'products/samsung_tv2.jpg'),
+(55, 4, 'Sony Bravia 32 pulgadas', 20, 700.00, 1100.00, 'products/sony_tv2.jpg')
+(56, 5, 'Auriculares Bluetooth Sony', 30, 20.00, 50.00, 'products/auriculares_sony.jpg'),
+(57, 5, 'Funda para Laptop HP 15 pulgadas', 25, 15.00, 40.00, 'products/funda.jpg'),
+(58, 5, 'Cargador inalámbrico Samsung', 40, 30.00, 70.00, 'products/cargador_inalambrico.jpg'),
+(59, 5, 'Mouse Logitech Gaming', 15, 25.00, 60.00, 'products/mouse_gamer.jpg'),
+(60, 5, 'Teclado mecánico Corsair', 50, 40.00, 90.00, 'products/teclado.jpg');
 
 INSERT INTO "salesApp_customer" (id,first_name, last_name, address, date_of_birth, email, home_phone, cell_phone)
 VALUES 

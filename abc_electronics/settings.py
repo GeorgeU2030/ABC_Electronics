@@ -85,7 +85,7 @@ DATABASES = {
         'USER': 'adminabc',
         'PASSWORD': 'abc',
         'HOST': 'localhost',
-        'PORT': '5432', #yo tengo el postgres instalaldo en el 5430 entonces me toca cambiarlo, cambienlo cuanodo lo usen
+        'PORT': '5430', #yo tengo el postgres instalaldo en el 5430 entonces me toca cambiarlo, cambienlo cuanodo lo usen
     },
     'mongodb': {
         'ENGINE': 'djongo',
